@@ -1,0 +1,129 @@
+/* achievements.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #000000, #1c1c1c);
+  color: white;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1c1c1c;
+  padding: 0 40px;
+  height: 70px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 60px;
+  margin: 0;
+  padding: 0;
+  font-size: large;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #ff69b4; /* Pink */
+}
+
+
+
+.section {
+  padding: 20px 50px;
+  max-width: 900px;
+  margin: auto;
+  background-color: rgb(42, 41, 41);
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+.section h1, .section h2 {
+  font-size: 36px;
+  color: #f072b1;
+  margin-bottom: 20px;
+  border-bottom: #4c4c4c 4px solid;
+}
+
+.section p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.achievement-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #201f1f;
+  padding: 40px;
+  border-radius: 20px
+
+}
+
+.achievement-text {
+  flex: 1;
+}
+
+.achievement-img img {
+  max-width: 200px;
+  border-radius: 8px;
+}
+.contact-container {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.contact-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.contact-container p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.contact-container a {
+  color: #ff2b94;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-container a:hover {
+  text-decoration: underline;
+}
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.footer a {
+  color: #ff69b4;
+  text-decoration: none;
+}

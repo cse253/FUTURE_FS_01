@@ -1,0 +1,168 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #000000, #1c1c1c);
+  color: white;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1c1c1c;
+  padding: 0 40px;
+  height: 70px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  border-bottom: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 60px;
+  margin: 0;
+  padding: 0;
+  font-size: large;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #ff69b4; /* Pink */
+}
+
+.main-content {
+  padding: 2rem;
+}
+
+h1 {
+  color: #ff69b4;
+}
+
+.highlight {
+  color: #f06292;
+}
+h2{
+  color: #ff69b4;
+  border-bottom: #7f7979a4 5px solid ;
+}
+.gopal{
+  background-color: #262424;
+  padding: 10px;
+  border: black solid 2px;
+  border-radius: 20px;
+  align-items: center;
+}
+.tharu{
+  background-color: #262424;
+  padding: 10px;
+  border: black solid 2px;
+  border-radius: 20px;
+  align-items: center;
+}
+.button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #f06292;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.img-gallery {
+  display: flex;
+  gap: 4rem;
+  padding:5px;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.img-gallery img {
+  width: 30%;
+  border-radius: 10px;
+}
+
+.skill {
+  margin-bottom: 1rem;
+}
+
+.skill span {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.skill-bar {
+  background-color: #171414;
+  border-radius: 2px;
+  height: 15px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background-color: #e5a2b9;
+  border-radius: 2px;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #111;
+}
+
+footer a {
+  color: #f06292;
+  text-decoration: none;
+}
+.achievement-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.achievement-text {
+  flex: 1;
+}
+
+.achievement-img img {
+  max-width: 200px;
+  border-radius: 8px;
+}
+.contact-container {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.contact-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.contact-container p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.contact-container a {
+  color: #ff2b94;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-container a:hover {
+  text-decoration: underline;
+}
