@@ -17,20 +17,21 @@
       padding: 9rem 6% 3rem;
       position: relative;
       overflow: hidden;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 2px solid var(--accent);
       background: var(--bg3);
     }
     .page-hero::before {
       content: '';
       position: absolute;
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(197, 168, 128, 0.12), transparent 70%);
+      background: radial-gradient(circle, rgba(143, 98, 0, 0.12), transparent 70%);
       top: -200px; right: -100px;
       border-radius: 50%;
     }
     .page-hero-content { position: relative; z-index: 1; }
+    .page-hero-content h1 { color: var(--text-light) !important; }
     .page-hero-content p {
-      color: var(--text-sub); max-width: 540px;
+      color: #cccccc; max-width: 540px;
       font-size: 1.02rem; margin-top: 0.8rem;
     }
 
@@ -149,23 +150,23 @@
       }
     }
 
-    /* Luxury Neutral Visual Backgrounds */
-    .pv-isl { background: linear-gradient(135deg, var(--bg3), var(--accent-light)); }
-    .pv-vaitra { background: linear-gradient(135deg, var(--bg2), var(--bg3)); }
-    .pv-maruthuvan { background: linear-gradient(135deg, var(--bg3), var(--accent-light)); }
-    .pv-hearaid { background: linear-gradient(135deg, var(--bg2), var(--bg3)); }
-    .pv-rollcallx { background: linear-gradient(135deg, var(--bg3), var(--accent-light)); }
+    /* Luxury Dark Gold Visual Backgrounds */
+    .pv-isl { background: linear-gradient(135deg, #1c1917, #3a3028); }
+    .pv-vaitra { background: linear-gradient(135deg, #0f0e0c, #2a2218); }
+    .pv-maruthuvan { background: linear-gradient(135deg, #1c1917, #352a1b); }
+    .pv-hearaid { background: linear-gradient(135deg, #0f0e0c, #2d2418); }
+    .pv-rollcallx { background: linear-gradient(135deg, #1c1917, #3d3221); }
 
     .pv-icon {
       font-size: 3.5rem;
-      opacity: 0.8;
-      color: var(--accent-dark);
-      filter: drop-shadow(0 4px 12px rgba(197, 168, 128, 0.25));
+      opacity: 0.9;
+      color: #dfc49c; /* Bright metallic gold for dark background */
+      filter: drop-shadow(0 4px 15px rgba(166, 124, 30, 0.45));
       transition: var(--trans);
     }
     .project-card:hover .pv-icon {
       transform: scale(1.1) rotate(2deg);
-      color: var(--accent-dark);
+      color: #ffffff;
     }
 
     .project-type-label {

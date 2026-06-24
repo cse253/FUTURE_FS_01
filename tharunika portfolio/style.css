@@ -3,23 +3,26 @@
 
 /* ===== VARIABLES ===== */
 :root {
-  /* Colors */
-  --bg: #fcfbf7;            /* Alabaster / Warm White */
-  --bg2: #ffffff;           /* Pure White */
-  --bg3: #f5f3ed;           /* Warm Sand / Light Beige */
-  --text: #1c1917;          /* Charcoal Black */
-  --text-sub: #57534e;      /* Soft Charcoal */
-  --text-muted: #8c8a82;    /* Warm Muted Gray */
-  --accent: #c5a880;        /* Champagne Gold */
-  --accent-light: #f3e8d2;  /* Soft Light Gold */
-  --accent-dark: #9e7f59;   /* Antique Gold / Bronze */
+  /* High Contrast Colors */
+  --bg: #ffffff;            /* Pure White Background */
+  --bg2: #fcfbf9;           /* Off-White offset */
+  --bg3: #111111;           /* Rich Black for Headers, Footers, and dark sections */
+  --text: #050505;          /* Jet Black for primary body content */
+  --text-sub: #2e2a24;      /* Deep Charcoal */
+  --text-muted: #5e5a54;    /* Medium Muted Charcoal */
+  --text-light: #ffffff;    /* Pure White for dark sections */
+  
+  /* Accessible Deep Gold Accent Colors (contrast ratio > 4.5:1 on white background) */
+  --accent: #8f6200;        /* Deep Gold / Bronze */
+  --accent-light: #fdf6e6;  /* Soft Warm Cream background */
+  --accent-dark: #634300;   /* Antique Dark Bronze */
   
   /* Gradients & Shadows */
-  --gold-grad: linear-gradient(135deg, #dfc49c 0%, #c5a880 50%, #9e7f59 100%);
-  --gold-glow: rgba(197, 168, 128, 0.25);
-  --gold-glow-subtle: rgba(197, 168, 128, 0.12);
-  --border: #e7e5e4;        /* Soft Stone Gray */
-  --border-gold: rgba(197, 168, 128, 0.3);
+  --gold-grad: linear-gradient(135deg, #a67c1e 0%, #8f6200 50%, #634300 100%);
+  --gold-glow: rgba(143, 98, 0, 0.25);
+  --gold-glow-subtle: rgba(143, 98, 0, 0.12);
+  --border: #d6d3d1;        /* Stronger border lines */
+  --border-gold: rgba(143, 98, 0, 0.45);
   
   /* Fonts */
   --font-display: 'Cinzel', Georgia, serif;
@@ -54,14 +57,15 @@ body {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg3);
+  background: var(--bg2);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--accent);
-  border-radius: 4px;
+  border: 2px solid var(--bg);
+  border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-dark);
@@ -72,13 +76,13 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: radial-gradient(circle at 50% 50%, rgba(197, 168, 128, 0.015) 1px, transparent 1px);
+  background-image: radial-gradient(circle at 50% 50%, rgba(143, 98, 0, 0.02) 1px, transparent 1px);
   background-size: 24px 24px;
   pointer-events: none;
   z-index: 99;
 }
 
-/* ===== NAVBAR & HEADER ===== */
+/* ===== NAVBAR & HEADER (DARK HIGH-CONTRAST) ===== */
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -87,11 +91,12 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 1.2rem 6%;
-  background: rgba(252, 251, 247, 0.85);
+  background: rgba(17, 17, 17, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--accent);
   transition: var(--trans);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
 }
 
 .logo {
@@ -115,8 +120,8 @@ header {
 .nav-links a {
   text-decoration: none;
   font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-sub);
+  font-weight: 700;
+  color: #cccccc;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   position: relative;
@@ -128,14 +133,14 @@ header {
   content: '';
   position: absolute;
   bottom: -2px; left: 50%;
-  width: 0; height: 1.5px;
+  width: 0; height: 2px;
   background: var(--gold-grad);
   transition: var(--trans);
   transform: translateX(-50%);
 }
 
 .nav-links a:hover {
-  color: var(--accent-dark);
+  color: #ffffff;
 }
 
 .nav-links a:hover::after,
@@ -144,8 +149,11 @@ header {
 }
 
 .nav-links a.active {
-  color: var(--text);
-  font-weight: 700;
+  color: #ffffff;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ===== HERO SECTION ===== */
@@ -164,8 +172,8 @@ header {
   inset: 0;
   z-index: 0;
   background-image: 
-    linear-gradient(rgba(197, 168, 128, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(197, 168, 128, 0.035) 1px, transparent 1px);
+    linear-gradient(rgba(143, 98, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143, 98, 0, 0.04) 1px, transparent 1px);
   background-size: 50px 50px;
   mask-image: radial-gradient(ellipse at center, black 40%, transparent 90%);
   -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 90%);
@@ -189,14 +197,15 @@ header {
   text-transform: uppercase;
   margin-bottom: 1.5rem;
   padding: 0.35rem 0.9rem;
-  border: 1px solid var(--accent);
+  border: 1.5px solid var(--accent);
   border-radius: 100px;
-  background: rgba(197, 168, 128, 0.05);
+  background: var(--accent-light);
+  font-weight: 700;
 }
 
 .hero-eyebrow span {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   background: var(--accent);
   border-radius: 50%;
   animation: pulse 2s infinite;
@@ -210,10 +219,11 @@ header {
 .hero-content h1 {
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 5vw, 3.8rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.15;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   margin-bottom: 0.6rem;
+  color: var(--text);
 }
 
 .hero-content h1 .highlight {
@@ -221,18 +231,19 @@ header {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 800;
 }
 
 .hero-content h2 {
   font-family: var(--font-body);
   font-size: clamp(1.2rem, 3vw, 1.8rem);
-  font-weight: 500;
+  font-weight: 700;
   color: var(--text-sub);
   margin-bottom: 1.5rem;
 }
 
 .hero-content p {
-  font-size: 1.02rem;
+  font-size: 1.05rem;
   color: var(--text-sub);
   max-width: 540px;
   margin-bottom: 2rem;
@@ -254,7 +265,7 @@ header {
   padding: 0.8rem 1.8rem;
   border-radius: 100px;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   text-decoration: none;
   transition: var(--trans);
@@ -268,22 +279,22 @@ header {
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: 0 12px 28px var(--gold-glow);
-  filter: brightness(1.04);
+  filter: brightness(1.08);
 }
 
 .btn-outline {
-  border: 1.5px solid var(--accent);
-  color: var(--accent-dark);
+  border: 2px solid var(--accent);
+  color: var(--accent);
   background: transparent;
 }
 
 .btn-outline:hover {
   border-color: var(--accent-dark);
-  background: var(--accent-light);
-  color: var(--text);
-  transform: translateY(-3px);
+  background: var(--gold-grad);
+  color: #ffffff;
+  transform: translateY(-4px);
 }
 
 /* ===== SOCIAL LINKS ===== */
@@ -296,8 +307,8 @@ header {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--bg2);
+  border: 1.5px solid var(--border);
+  background: var(--bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -310,7 +321,7 @@ header {
 .social-link:hover {
   border-color: var(--accent);
   color: var(--accent-dark);
-  transform: translateY(-3px) rotate(8deg);
+  transform: translateY(-4px) rotate(8deg);
   box-shadow: 0 8px 20px var(--gold-glow-subtle);
 }
 
@@ -328,8 +339,7 @@ header {
   border-radius: 50%;
   background: var(--gold-grad);
   z-index: -1;
-  opacity: 0.8;
-  filter: blur(1px);
+  opacity: 0.9;
 }
 
 .image-container img {
@@ -337,9 +347,9 @@ header {
   height: 290px;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid var(--bg2);
+  border: 5px solid var(--bg);
   display: block;
-  box-shadow: 0 16px 36px rgba(0,0,0,0.06);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.1);
 }
 
 /* ===== SECTION WRAPPERS ===== */
@@ -361,14 +371,16 @@ header {
   text-transform: uppercase;
   margin-bottom: 0.5rem;
   display: block;
+  font-weight: 700;
 }
 
 .section-header h2 {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.02em;
   line-height: 1.2;
+  color: var(--text);
 }
 
 .section-header h2 .accent {
@@ -376,25 +388,26 @@ header {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 800;
 }
 
 /* ===== CARDS (GLOBAL REDESIGN) ===== */
 .card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
+  background: var(--bg);
+  border: 1.5px solid var(--border);
   border-radius: var(--radius);
   padding: 2.2rem;
   transition: var(--trans);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.015);
 }
 
 .card::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 2px;
+  height: 3px;
   background: var(--gold-grad);
   opacity: 0;
   transition: var(--trans);
@@ -402,7 +415,7 @@ header {
 
 .card:hover {
   border-color: var(--accent);
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   box-shadow: 0 20px 40px var(--gold-glow-subtle);
 }
 
@@ -415,20 +428,20 @@ header {
   display: inline-block;
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  font-weight: 500;
+  font-weight: 700;
   padding: 0.35rem 0.8rem;
   border-radius: 6px;
-  background: var(--bg3);
+  background: var(--accent-light);
   color: var(--accent-dark);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(143, 98, 0, 0.3);
   margin: 0.2rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER (DARK HIGH-CONTRAST) ===== */
 footer {
-  border-top: 1px solid var(--border);
+  border-top: 2px solid var(--accent);
   padding: 2.5rem 6%;
   display: flex;
   align-items: center;
@@ -439,9 +452,21 @@ footer {
 }
 
 footer p {
-  color: var(--text-muted);
+  color: #bbbbbb;
   font-size: 0.88rem;
-  font-weight: 500;
+  font-weight: 600;
+}
+
+footer .socials .social-link {
+  background: #222222;
+  border-color: #333333;
+  color: #cccccc;
+}
+
+footer .socials .social-link:hover {
+  border-color: var(--accent);
+  color: #ffffff;
+  background: var(--gold-grad);
 }
 
 /* ===== RESPONSIVE STYLES ===== */

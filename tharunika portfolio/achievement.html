@@ -12,17 +12,18 @@
     .page-hero {
       min-height:38vh; display:flex; align-items:flex-end;
       padding:9rem 6% 3rem; position:relative; overflow:hidden;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 2px solid var(--accent);
       background: var(--bg3);
     }
     .page-hero::before {
       content:''; position:absolute;
       width:600px; height:600px;
-      background:radial-gradient(circle,rgba(197, 168, 128, 0.12),transparent 70%);
+      background:radial-gradient(circle,rgba(143, 98, 0, 0.12),transparent 70%);
       top:-200px; right:-100px; border-radius:50%;
     }
     .page-hero-content { position:relative; z-index:1; }
-    .page-hero-content p { color:var(--text-sub); max-width:540px; font-size:1.02rem; margin-top:0.8rem; }
+    .page-hero-content h1 { color: var(--text-light) !important; }
+    .page-hero-content p { color:#cccccc; max-width:540px; font-size:1.02rem; margin-top:0.8rem; }
 
     .certs-section { padding:4rem 6% 6rem; }
 
