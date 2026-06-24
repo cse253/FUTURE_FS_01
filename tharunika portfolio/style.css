@@ -4,24 +4,24 @@
 /* ===== VARIABLES ===== */
 :root {
   /* High Contrast Colors */
-  --bg: #ffffff;            /* Pure White Background */
-  --bg2: #fcfbf9;           /* Off-White offset */
+  --bg: #eae0c9;            /* Satin Champagne Gold Background */
+  --bg2: #ffffff;           /* Pure White for card offsets */
   --bg3: #111111;           /* Rich Black for Headers, Footers, and dark sections */
   --text: #050505;          /* Jet Black for primary body content */
   --text-sub: #2e2a24;      /* Deep Charcoal */
   --text-muted: #5e5a54;    /* Medium Muted Charcoal */
   --text-light: #ffffff;    /* Pure White for dark sections */
   
-  /* Accessible Deep Gold Accent Colors (contrast ratio > 4.5:1 on white background) */
-  --accent: #8f6200;        /* Deep Gold / Bronze */
-  --accent-light: #fdf6e6;  /* Soft Warm Cream background */
-  --accent-dark: #634300;   /* Antique Dark Bronze */
+  /* Accessible Deep Gold Accent Colors */
+  --accent: #785200;        /* Deep Gold / Bronze */
+  --accent-light: #fbf7ec;  /* Soft Warm Cream background */
+  --accent-dark: #523700;   /* Antique Dark Bronze */
   
   /* Gradients & Shadows */
   --gold-grad: linear-gradient(135deg, #a67c1e 0%, #8f6200 50%, #634300 100%);
   --gold-glow: rgba(143, 98, 0, 0.25);
   --gold-glow-subtle: rgba(143, 98, 0, 0.12);
-  --border: #d6d3d1;        /* Stronger border lines */
+  --border: #cdc3ab;        /* Muted Gold-Sand borders */
   --border-gold: rgba(143, 98, 0, 0.45);
   
   /* Fonts */
