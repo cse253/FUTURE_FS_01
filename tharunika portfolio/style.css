@@ -383,6 +383,17 @@ header {
   color: var(--text);
 }
 
+/* Section headers inside dark containers (background var(--bg3)) */
+.services-section .section-header h2,
+.skills-section .section-header h2 {
+  color: var(--text-light);
+}
+
+.services-section .section-header .section-eyebrow,
+.skills-section .section-header .section-eyebrow {
+  color: var(--accent);
+}
+
 .section-header h2 .accent {
   background: var(--gold-grad);
   -webkit-background-clip: text;
