@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Achievements — Tharunika SS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .page-hero {
+      min-height:38vh; display:flex; align-items:flex-end;
+      padding:9rem 6% 3rem; position:relative; overflow:hidden;
+    }
+    .page-hero::before {
+      content:''; position:absolute;
+      width:600px; height:600px;
+      background:radial-gradient(circle,rgba(244,114,182,0.10),transparent 70%);
+      top:-200px; right:-100px; border-radius:50%;
+    }
+    .page-hero-content { position:relative; z-index:1; }
+    .page-hero-content p { color:var(--text-sub); max-width:540px; font-size:1.05rem; margin-top:0.8rem; }
+
+    .certs-section { padding:2rem 6% 5rem; }
+
+    /* Timeline-style certs */
+    .cert-list { display:flex; flex-direction:column; gap:1.5rem; margin-top:2.5rem; }
+    .cert-item {
+      display:flex; gap:2rem; align-items:flex-start;
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:var(--radius); padding:1.8rem;
+      transition:var(--trans); position:relative; overflow:hidden;
+    }
+    .cert-item::before {
+      content:''; position:absolute; top:0;left:0;bottom:0;width:2px;
+      background:linear-gradient(180deg,var(--accent),var(--accent2));
+      opacity:0; transition:var(--trans);
+    }
+    .cert-item:hover { border-color:rgba(192,132,252,0.3); transform:translateX(4px); }
+    .cert-item:hover::before { opacity:1; }
+
+    .cert-icon {
+      width:52px; height:52px; flex-shrink:0;
+      border-radius:14px; background:rgba(192,132,252,0.1);
+      border:1px solid rgba(192,132,252,0.2);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.3rem; color:var(--accent);
+    }
+    .cert-body { flex:1; }
+    .cert-body h3 { font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin-bottom:0.4rem; }
+    .cert-issuer { font-family:var(--font-mono); font-size:0.8rem; color:var(--accent2); margin-bottom:0.3rem; }
+    .cert-date { font-size:0.8rem; color:var(--text-muted); }
+    .cert-img-wrap {
+      flex-shrink:0; width:140px; height:90px;
+      border-radius:10px; overflow:hidden;
+      border:1px solid var(--border); background:var(--bg3);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .cert-img-wrap img { width:100%; height:100%; object-fit:cover; transition:var(--trans); }
+    .cert-item:hover .cert-img-wrap img { transform:scale(1.05); }
+
+    /* Placeholder for missing images */
+    .cert-img-placeholder { color:var(--text-muted); font-size:2rem; }
+
+    @media(max-width:640px) {
+      .cert-item { flex-direction:column; }
+      .cert-img-wrap { width:100%; height:160px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Tharunika SS</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="achievement.html" class="active">Achievements</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <div class="section-eyebrow">Credentials</div>
+      <h1 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-0.03em;">
+        Certificates & <span style="color:var(--accent)">Achievements</span>
+      </h1>
+      <p>A growing portfolio of credentials spanning programming, AI tools, algorithms, and web development.</p>
+    </div>
+  </div>
+
+  <section class="certs-section">
+    <div class="section-header">
+      <div class="section-eyebrow">Verified credentials</div>
+      <h2>Certifications</h2>
+    </div>
+
+    <div class="cert-list">
+
+      <div class="cert-item">
+        <div class="cert-icon"><i class="fas fa-sitemap"></i></div>
+        <div class="cert-body">
+          <h3>Mastering Data Structures & Algorithms Using C and C++</h3>
+          <div class="cert-issuer"><i class="fas fa-graduation-cap"></i> &nbsp;Udemy Academy</div>
+          <div class="cert-date"><i class="fas fa-calendar"></i> &nbsp;Completed May 14, 2025</div>
+        </div>
+        <div class="cert-img-wrap">
+          <img src="Screenshot 2025-07-19 214706.png" alt="DSA Certificate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="cert-img-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-icon" style="background:rgba(129,140,248,0.1);border-color:rgba(129,140,248,0.2);color:var(--accent2)"><i class="fas fa-code"></i></div>
+        <div class="cert-body">
+          <h3>C and C++ Certification</h3>
+          <div class="cert-issuer" style="color:var(--accent2)"><i class="fas fa-graduation-cap"></i> &nbsp;Apollo Computer Education, Pollachi</div>
+          <div class="cert-date"><i class="fas fa-calendar"></i> &nbsp;Completed July 2024</div>
+        </div>
+        <div class="cert-img-wrap">
+          <img src="Screenshot 2025-07-19 215300.png" alt="C/C++ Certificate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="cert-img-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-icon" style="background:rgba(244,114,182,0.1);border-color:rgba(244,114,182,0.2);color:var(--accent3)"><i class="fab fa-github"></i></div>
+        <div class="cert-body">
+          <h3>GitHub Copilot using Java and MySQL</h3>
+          <div class="cert-issuer" style="color:var(--accent3)"><i class="fas fa-graduation-cap"></i> &nbsp;Great Learning</div>
+          <div class="cert-date"><i class="fas fa-calendar"></i> &nbsp;Completed July 13, 2025</div>
+        </div>
+        <div class="cert-img-wrap">
+          <img src="Screenshot 2025-07-19 224654.png" alt="GitHub Copilot Certificate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="cert-img-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-icon"><i class="fas fa-university"></i></div>
+        <div class="cert-body">
+          <h3>Certification for the Completion of C Training — Level I</h3>
+          <div class="cert-issuer"><i class="fas fa-graduation-cap"></i> &nbsp;IIT Bombay (Spoken Tutorial)</div>
+          <div class="cert-date"><i class="fas fa-calendar"></i> &nbsp;Completed December 20, 2024</div>
+        </div>
+        <div class="cert-img-wrap">
+          <img src="Screenshot 2025-07-19 215214.png" alt="IIT Bombay C Certificate I" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="cert-img-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-icon" style="background:rgba(129,140,248,0.1);border-color:rgba(129,140,248,0.2);color:var(--accent2)"><i class="fas fa-university"></i></div>
+        <div class="cert-body">
+          <h3>Certification for the Completion of C Training — Level II</h3>
+          <div class="cert-issuer" style="color:var(--accent2)"><i class="fas fa-graduation-cap"></i> &nbsp;IIT Bombay (Spoken Tutorial)</div>
+          <div class="cert-date"><i class="fas fa-calendar"></i> &nbsp;Completed December 20, 2024</div>
+        </div>
+        <div class="cert-img-wrap">
+          <img src="Screenshot 2025-07-19 215226.png" alt="IIT Bombay C Certificate II" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="cert-img-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-icon" style="background:rgba(244,114,182,0.1);border-color:rgba(244,114,182,0.2);color:var(--accent3)"><i class="fab fa-html5"></i></div>
+        <div class="cert-body">
+          <h3>HTML Course Certification</h3>
+          <div class="cert-issuer" style="color:var(--accent3)"><i class="fas fa-graduation-cap"></i> &nbsp;Sololearn</div>
+          <div class="cert-date"><i class="fas fa-calendar"></i> &nbsp;Completed November 8, 2024</div>
+        </div>
+        <div class="cert-img-wrap">
+          <img src="Screenshot 2025-07-19 215312.png" alt="HTML Sololearn Certificate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="cert-img-placeholder" style="display:none"><i class="fas fa-certificate"></i></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Tharunika SS. Built with passion & purpose.</p>
+    <div class="socials">
+      <a href="https://github.com/cse253/" target="_blank" class="social-link" style="width:36px;height:36px;font-size:0.9rem"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/tharunika-s-s-96475532a" target="_blank" class="social-link" style="width:36px;height:36px;font-size:0.9rem"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </footer>
+</body>
+</html>

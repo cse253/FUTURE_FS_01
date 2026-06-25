@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — Tharunika SS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .page-hero {
+      min-height: 38vh;
+      display: flex; align-items: flex-end;
+      padding: 9rem 6% 3rem;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content:''; position:absolute;
+      width:600px; height:600px;
+      background: radial-gradient(circle, rgba(129,140,248,0.10), transparent 70%);
+      top:-200px; right:-100px; border-radius:50%;
+    }
+    .page-hero-content { position:relative; z-index:1; }
+    .page-hero-content p { color:var(--text-sub); max-width:540px; font-size:1.05rem; margin-top:0.8rem; }
+
+    /* About layout */
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      padding: 3rem 6% 5rem;
+    }
+    @media(max-width:768px){ .about-wrap{grid-template-columns:1fr;} }
+
+    .about-bio h3 {
+      font-family: var(--font-display); font-size:1.5rem; font-weight:700;
+      margin-bottom:1rem;
+    }
+    .about-bio p { color:var(--text-sub); line-height:1.85; margin-bottom:1rem; font-size:0.95rem; }
+
+    .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-top:1.5rem; }
+    .info-item { display:flex; flex-direction:column; gap:0.2rem; }
+    .info-label { font-family:var(--font-mono); font-size:0.7rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; }
+    .info-value { font-size:0.9rem; font-weight:500; }
+
+    /* Skills column */
+    .about-skills {}
+    .skill-category { margin-bottom:2rem; }
+    .skill-category h4 {
+      font-family:var(--font-mono); font-size:0.75rem;
+      color:var(--accent); text-transform:uppercase; letter-spacing:0.12em;
+      margin-bottom:1rem; padding-bottom:0.5rem;
+      border-bottom:1px solid var(--border);
+    }
+    .skill-row {
+      display:flex; align-items:center; gap:1rem;
+      margin-bottom:0.9rem;
+    }
+    .skill-row .skill-name { font-size:0.88rem; min-width:160px; }
+    .skill-bar { flex:1; height:4px; background:rgba(255,255,255,0.06); border-radius:2px; overflow:hidden; }
+    .skill-fill { height:100%; border-radius:2px; background:linear-gradient(90deg,var(--accent),var(--accent2)); transition:width 1.2s cubic-bezier(.4,0,.2,1); }
+    .skill-pct { font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted); min-width:36px; text-align:right; }
+
+    /* Services */
+    .services-section { padding:0 6% 5rem; }
+    .services-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+      gap:1.2rem; margin-top:2.5rem;
+    }
+    .service-card {
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:var(--radius); padding:2rem;
+      transition:var(--trans); position:relative; overflow:hidden;
+    }
+    .service-card::before {
+      content:''; position:absolute; top:0;left:0;right:0;height:1px;
+      background:linear-gradient(90deg,transparent,var(--accent),transparent);
+      opacity:0; transition:var(--trans);
+    }
+    .service-card:hover { transform:translateY(-4px); border-color:rgba(192,132,252,0.3); }
+    .service-card:hover::before { opacity:1; }
+    .service-icon {
+      width:48px; height:48px; border-radius:12px;
+      background:rgba(192,132,252,0.1); border:1px solid rgba(192,132,252,0.2);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.2rem; color:var(--accent); margin-bottom:1.2rem;
+    }
+    .service-card h3 { font-family:var(--font-display); font-size:1rem; font-weight:700; margin-bottom:0.6rem; }
+    .service-card p { color:var(--text-sub); font-size:0.88rem; line-height:1.7; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Tharunika SS</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="achievement.html">Achievements</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <div class="section-eyebrow">Who I am</div>
+      <h1 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-0.03em;">
+        About <span style="color:var(--accent)">Me</span>
+      </h1>
+      <p>Curious by nature, driven by purpose — building things that matter at the intersection of AI and human experience.</p>
+    </div>
+  </div>
+
+  <div class="about-wrap">
+    <!-- Left: Bio -->
+    <div class="about-bio">
+      <h3>What I Do</h3>
+      <p>
+        I'm Tharunika SS, a passionate Computer Science student with a deep interest in AI, deep learning, and full-stack web development. I love the intersection of research and engineering — where a good idea meets clean, working code.
+      </p>
+      <p>
+        From conducting research at NIT Calicut on Indian Sign Language recognition using Transformer-based fusion models, to building Chrome Extensions that detect allergens with NLP, and healthcare platforms connecting thousands — I build for real impact.
+      </p>
+      <p>
+        I also have a creative side: I enjoy video editing, content creation, and visual design — which feeds directly into how I think about user experience and product aesthetics.
+      </p>
+
+      <div class="info-grid" style="margin-top:2rem;">
+        <div class="info-item">
+          <span class="info-label">Degree</span>
+          <span class="info-value">B.E. Computer Science</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Internship</span>
+          <span class="info-value">NIT Calicut, 2026</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Location</span>
+          <span class="info-value">Tamil Nadu, India</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Email</span>
+          <span class="info-value" style="font-size:0.82rem">tharunikaa2005@gmail.com</span>
+        </div>
+      </div>
+
+      <div style="margin-top:2rem;">
+        <a href="resume portfolio.pdf" download class="btn btn-primary" style="display:inline-flex;">
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Skills -->
+    <div class="about-skills" id="skillsContainer">
+      <div class="skill-category">
+        <h4>Programming Languages</h4>
+        <div class="skill-row" data-pct="90">
+          <span class="skill-name">C / C++</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+          <span class="skill-pct">90%</span>
+        </div>
+        <div class="skill-row" data-pct="85">
+          <span class="skill-name">Python</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+          <span class="skill-pct">85%</span>
+        </div>
+        <div class="skill-row" data-pct="80">
+          <span class="skill-name">Java</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+          <span class="skill-pct">80%</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h4>Web & Frameworks</h4>
+        <div class="skill-row" data-pct="85">
+          <span class="skill-name">HTML / CSS / JS</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+          <span class="skill-pct">85%</span>
+        </div>
+        <div class="skill-row" data-pct="80">
+          <span class="skill-name">React / Next.js</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+          <span class="skill-pct">80%</span>
+        </div>
+        <div class="skill-row" data-pct="75">
+          <span class="skill-name">Node.js / Flask</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+          <span class="skill-pct">75%</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h4>AI / ML</h4>
+        <div class="skill-row" data-pct="78">
+          <span class="skill-name">PyTorch / Deep Learning</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+          <span class="skill-pct">78%</span>
+        </div>
+        <div class="skill-row" data-pct="75">
+          <span class="skill-name">OpenCV / MediaPipe</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+          <span class="skill-pct">75%</span>
+        </div>
+        <div class="skill-row" data-pct="72">
+          <span class="skill-name">Transformers / NLP</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+          <span class="skill-pct">72%</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h4>Soft Skills</h4>
+        <div class="skill-row" data-pct="90">
+          <span class="skill-name">Team Collaboration</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+          <span class="skill-pct">90%</span>
+        </div>
+        <div class="skill-row" data-pct="85">
+          <span class="skill-name">Communication</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+          <span class="skill-pct">85%</span>
+        </div>
+        <div class="skill-row" data-pct="80">
+          <span class="skill-name">Design & Editing</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+          <span class="skill-pct">80%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <section class="services-section">
+    <div class="section-header">
+      <div class="section-eyebrow">What I offer</div>
+      <h2>Areas of <span class="accent">Expertise</span></h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-brain"></i></div>
+        <h3>AI & Deep Learning</h3>
+        <p>Research and implementation of neural networks, computer vision, NLP, and model interpretability using PyTorch and TensorFlow.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" style="background:rgba(129,140,248,0.1);border-color:rgba(129,140,248,0.2);color:var(--accent2)"><i class="fas fa-code"></i></div>
+        <h3>Full-Stack Web Development</h3>
+        <p>Building complete web applications from React frontends to Flask/Node.js backends with real-time features and database integration.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" style="background:rgba(244,114,182,0.1);border-color:rgba(244,114,182,0.2);color:var(--accent3)"><i class="fas fa-puzzle-piece"></i></div>
+        <h3>Browser Extension Development</h3>
+        <p>Chrome Extensions with Manifest V3, real-time ML inference in the browser, and seamless UX for everyday tools.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" style="background:rgba(56,189,248,0.1);border-color:rgba(56,189,248,0.2);color:#38bdf8"><i class="fas fa-universal-access"></i></div>
+        <h3>Accessible & Inclusive Tech</h3>
+        <p>Creating technology for underserved communities — from ISL recognition systems to real-time speech-to-sign converters.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-film"></i></div>
+        <h3>Video & Creative Content</h3>
+        <p>End-to-end video editing and creative content design for social media, promos, and presentations using Canva, CapCut, and more.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" style="background:rgba(129,140,248,0.1);border-color:rgba(129,140,248,0.2);color:var(--accent2)"><i class="fas fa-users-cog"></i></div>
+        <h3>Research & Problem Solving</h3>
+        <p>Systematic research approach with hands-on experimentation, evaluation, and documentation — as demonstrated at NIT Calicut.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Tharunika SS. Built with passion & purpose.</p>
+    <div class="socials">
+      <a href="https://github.com/cse253/" target="_blank" class="social-link" style="width:36px;height:36px;font-size:0.9rem"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/tharunika-s-s-96475532a" target="_blank" class="social-link" style="width:36px;height:36px;font-size:0.9rem"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.skill-row').forEach(row => {
+            const fill = row.querySelector('.skill-fill');
+            fill.style.width = row.dataset.pct + '%';
+          });
+        }
+      });
+    }, { threshold: 0.2 });
+    observer.observe(document.getElementById('skillsContainer'));
+  </script>
+</body>
+</html>

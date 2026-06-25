@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tharunika SS — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* Typewriter */
+    .typewriter { display: inline-block; }
+    .cursor { display: inline-block; width: 2px; height: 1.1em; background: var(--accent); vertical-align: middle; margin-left: 3px; animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* Stats bar */
+    .stats-row {
+      display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 3rem;
+      padding-top: 2rem; border-top: 1px solid var(--border);
+    }
+    .stat-item {}
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 1.8rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.04em; }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: var(--text-muted); font-size: 0.75rem; font-family: var(--font-mono);
+      animation: float 2.5s ease-in-out infinite;
+    }
+    .scroll-indicator .arrow { font-size: 1.2rem; color: var(--accent); }
+    @keyframes float { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+    /* Grid bg lines */
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(192,132,252,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(192,132,252,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, transparent 30%, black 80%);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Tharunika SS</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="achievement.html">Achievements</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-grid"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span></span>
+        Available for opportunities
+      </div>
+
+      <h1>Hey, I'm <span class="highlight">Tharunika SS</span></h1>
+      <h2>I build <span class="typewriter" id="typewriter"></span><span class="cursor"></span></h2>
+
+      <p>
+        A passionate Computer Science student specialising in AI, deep learning, and full-stack web development. I create digital experiences that blend cutting-edge technology with thoughtful design.
+      </p>
+
+      <div class="hero-actions">
+        <a href="project.html" class="btn btn-primary">
+          <i class="fas fa-folder-open"></i> View Projects
+        </a>
+        <a href="resume portfolio.pdf" download class="btn btn-outline">
+          <i class="fas fa-download"></i> Download CV
+        </a>
+      </div>
+
+      <div class="socials">
+        <a href="https://github.com/cse253/" target="_blank" class="social-link" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/tharunika-s-s-96475532a" target="_blank" class="social-link" title="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="mailto:tharunikaa2005@gmail.com" class="social-link" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-num">4+</div>
+          <div class="stat-label">Projects Built</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">6+</div>
+          <div class="stat-label">Certifications</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">81.8%</div>
+          <div class="stat-label">Research Accuracy</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">2mo</div>
+          <div class="stat-label">NIT Calicut Intern</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="image-container">
+      <img src="WhatsApp Image 2025-07-19 at 15.56.21_3bfa6b82.jpg" alt="Tharunika SS"/>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>scroll</span>
+      <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Tharunika SS. Built with passion & purpose.</p>
+    <div class="socials">
+      <a href="https://github.com/cse253/" target="_blank" class="social-link" style="width:36px;height:36px;font-size:0.9rem"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/tharunika-s-s-96475532a" target="_blank" class="social-link" style="width:36px;height:36px;font-size:0.9rem"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    const words = ['AI Systems', 'Web Apps', 'Deep Learning Models', 'Inclusive Tech'];
+    let i = 0, j = 0, deleting = false;
+    const el = document.getElementById('typewriter');
+    function type() {
+      const word = words[i];
+      if (!deleting) {
+        el.textContent = word.slice(0, ++j);
+        if (j === word.length) { deleting = true; setTimeout(type, 1500); return; }
+      } else {
+        el.textContent = word.slice(0, --j);
+        if (j === 0) { deleting = false; i = (i+1) % words.length; }
+      }
+      setTimeout(type, deleting ? 60 : 90);
+    }
+    type();
+  </script>
+</body>
+</html>
