@@ -1,67 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="project.css" />
-  <!-- Google Fonts -->
+  <title>Projects — Tharunika SS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* Page hero */
+    .page-hero {
+      min-height: 38vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 9rem 6% 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(192,132,252,0.10), transparent 70%);
+      top: -200px; right: -100px;
+      border-radius: 50%;
+    }
+    .page-hero-content { position: relative; z-index: 1; }
+    .page-hero-content p {
+      color: var(--text-sub); max-width: 540px;
+      font-size: 1.05rem; margin-top: 0.8rem;
+    }
 
-  <!-- ✅ Font Awesome CDN for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  
+    /* Internship Banner */
+    .internship-banner {
+      margin: 0 6% 3rem;
+      padding: 2.5rem;
+      background: linear-gradient(135deg, rgba(192,132,252,0.12), rgba(129,140,248,0.08));
+      border: 1px solid rgba(192,132,252,0.3);
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+    }
+    .internship-banner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+    }
+    .internship-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-mono); font-size: 0.72rem;
+      color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase;
+      background: rgba(192,132,252,0.1); border: 1px solid rgba(192,132,252,0.25);
+      padding: 0.3rem 0.8rem; border-radius: 100px; margin-bottom: 1rem;
+    }
+    .internship-banner h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem; font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .internship-banner .org {
+      font-family: var(--font-mono); font-size: 0.85rem;
+      color: var(--accent2); margin-bottom: 1rem;
+    }
+    .internship-banner p { color: var(--text-sub); line-height: 1.8; max-width: 740px; }
+    .internship-meta {
+      display: flex; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap;
+    }
+    .meta-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.85rem; color: var(--text-sub);
+    }
+    .meta-item i { color: var(--accent); }
+    .accuracy-pill {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(192,132,252,0.15); border: 1px solid rgba(192,132,252,0.3);
+      color: var(--accent); font-family: var(--font-mono); font-size: 0.8rem;
+      padding: 0.25rem 0.7rem; border-radius: 100px; margin-left: 0.5rem;
+    }
+
+    /* Projects Grid */
+    .projects-section { padding: 0 6% 5rem; }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.8rem;
+    }
+
+    /* Project Card */
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--trans);
+      display: flex; flex-direction: column;
+      position: relative;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0; transition: var(--trans);
+    }
+    .project-card:hover { transform: translateY(-6px); border-color: rgba(192,132,252,0.3); box-shadow: 0 24px 64px rgba(0,0,0,0.5); }
+    .project-card:hover::before { opacity: 1; }
+
+    .project-card.featured {
+      grid-column: 1 / -1;
+      flex-direction: row;
+    }
+    .project-card.featured .project-visual { flex: 0 0 44%; min-height: 280px; }
+    .project-card.featured .project-body { flex: 1; }
+
+    .project-visual {
+      min-height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .pv-isl { background: linear-gradient(135deg, #1a0a2e, #0d1a3a); }
+    .pv-vaitra { background: linear-gradient(135deg, #0a1a0d, #1a2a0a); }
+    .pv-maruthuvan { background: linear-gradient(135deg, #0d0a2a, #1a0d2a); }
+    .pv-hearaid { background: linear-gradient(135deg, #1a0d0a, #2a1a0a); }
+    .pv-rollcallx { background: linear-gradient(135deg, #0a1a2a, #0d2a1a); }
+
+    .pv-icon {
+      font-size: 4rem;
+      opacity: 0.7;
+      filter: drop-shadow(0 0 30px currentColor);
+    }
+    .pv-isl .pv-icon { color: var(--accent); }
+    .pv-vaitra .pv-icon { color: #4ade80; }
+    .pv-maruthuvan .pv-icon { color: var(--accent2); }
+    .pv-hearaid .pv-icon { color: var(--accent3); }
+    .pv-rollcallx .pv-icon { color: #38bdf8; }
+
+    .project-type-label {
+      position: absolute; top: 1rem; right: 1rem;
+      font-family: var(--font-mono); font-size: 0.65rem;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 0.25rem 0.6rem; border-radius: 6px;
+      background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.7);
+    }
+
+    .project-body { padding: 1.8rem; flex: 1; display: flex; flex-direction: column; }
+    .project-number {
+      font-family: var(--font-mono); font-size: 0.72rem;
+      color: var(--text-muted); margin-bottom: 0.5rem;
+      letter-spacing: 0.1em;
+    }
+    .project-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+    .project-body p { color: var(--text-sub); font-size: 0.92rem; line-height: 1.7; flex: 1; margin-bottom: 1.2rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 1.5rem; }
+    .project-links { display: flex; gap: 0.8rem; }
+    .proj-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; font-weight: 600;
+      padding: 0.5rem 1rem; border-radius: 8px;
+      border: 1px solid var(--border);
+      color: var(--text-sub); background: var(--glass);
+      transition: var(--trans);
+    }
+    .proj-link:hover { border-color: var(--accent); color: var(--accent); }
+    .proj-link.primary-link {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-color: transparent; color: #fff;
+    }
+    .proj-link.primary-link:hover { transform: translateY(-1px); box-shadow: 0 8px 24px var(--glow); }
+
+    /* Skills Section */
+    .skills-section {
+      padding: 4rem 6% 5rem;
+      border-top: 1px solid var(--border);
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem; margin-top: 2.5rem;
+    }
+    .skill-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.2rem 1.5rem;
+    }
+    .skill-header { display: flex; justify-content: space-between; margin-bottom: 0.8rem; }
+    .skill-name { font-size: 0.9rem; font-weight: 500; }
+    .skill-pct { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); }
+    .skill-bar { height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+    .skill-fill {
+      height: 100%; border-radius: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    @media (max-width: 768px) {
+      .project-card.featured { flex-direction: column; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
-
   <header>
-    <h2 class="logo">Tharunika SS</h2>
+    <div class="logo">Tharunika SS</div>
     <nav>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="project.html">Project</a></li>
+        <li><a href="project.html" class="active">Projects</a></li>
         <li><a href="achievement.html">Achievements</a></li>
-        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Main Content -->
-  <main class="main-content">
-    <section class="gopal">
-      <h2>Projects</h2>
-      <h3>RollCallX</h3>
-      <p>
-        RollCallX is a web-based attendance management system developed using HTML, CSS, JavaScript, Python (Flask), MySQL, and Chart.js. It automates and streamlines student attendance in educational institutions with features like real-time updates, secure login, automated reports, and data visualization.
-      <br>
-      <br>
-      </p>
-      <div class="img-gallery">
-        <img src="Screenshot 2025-07-19 213913.png" alt="RollCallX Dashboard" />
-        <img src="Screenshot 2025-07-19 213856.png" alt="Registration Page" />
-        <img src="Screenshot 2025-07-19 213835.png" alt="Mark Attendance" />
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <div class="section-eyebrow">Work & Research</div>
+      <h1 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-0.03em;">
+        Projects & <span style="color:var(--accent)">Internship</span>
+      </h1>
+      <p>From AI research at NIT Calicut to production-grade web apps — each project pushes the boundary a little further.</p>
+    </div>
+  </div>
+
+  <!-- ===== INTERNSHIP BANNER ===== -->
+  <div class="internship-banner">
+    <div class="internship-badge"><i class="fas fa-flask"></i> Research Internship</div>
+    <h3>Adaptive Multi-Modal Fusion Transformer for Indian Sign Language Recognition</h3>
+    <div class="org">
+      <i class="fas fa-university"></i> &nbsp;National Institute of Technology, Calicut &nbsp;|&nbsp;
+      <i class="fas fa-calendar-alt"></i> &nbsp;May 14, 2026 — July 2026 (2 Months)
+    </div>
+    <p>
+      Developed a deep learning-based Indian Sign Language (ISL) recognition system using RGB video frames and pose landmarks. The project integrates ResNet50, Transformer networks, and multimodal fusion techniques to classify sign gestures. Various fusion strategies were evaluated — RGB Baseline, Late Fusion, and Adaptive Fusion — with the best models achieving
+      <span class="accuracy-pill"><i class="fas fa-chart-line"></i> 81.82% test accuracy</span>.
+      The system incorporates explainable AI via Grad-CAM and attention map analysis to improve interpretability.
+    </p>
+    <div class="internship-meta">
+      <div class="meta-item"><i class="fas fa-brain"></i> Deep Learning / Computer Vision</div>
+      <div class="meta-item"><i class="fas fa-code"></i> Python · PyTorch · OpenCV · MediaPipe</div>
+      <div class="meta-item"><i class="fas fa-network-wired"></i> ResNet50 · Transformers · Grad-CAM</div>
+    </div>
+    <div style="margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:0.3rem;">
+      <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">OpenCV</span>
+      <span class="tag">MediaPipe</span><span class="tag blue">ResNet50</span><span class="tag blue">Transformers</span>
+      <span class="tag pink">Grad-CAM</span><span class="tag pink">NumPy</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span>
+    </div>
+  </div>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="projects-section">
+    <div class="section-header">
+      <div class="section-eyebrow">Built by me</div>
+      <h2>Featured <span class="accent">Projects</span></h2>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- VAITRA — Featured -->
+      <div class="project-card featured">
+        <div class="project-visual pv-vaitra">
+          <div class="pv-icon"><i class="fas fa-shield-virus"></i></div>
+          <span class="project-type-label">Chrome Extension · AI/ML</span>
+        </div>
+        <div class="project-body">
+          <div class="project-number">01 &nbsp;/&nbsp; Featured</div>
+          <h3>VAITRA — AI-Powered Allergen Detector</h3>
+          <p>
+            A smart Chrome Extension that uses Machine Learning and NLP to detect hidden allergens in ingredient lists in real time. Built with TensorFlow.js / ONNX Runtime Web and fine-tuned BERT/DistilBERT models trained on USDA Food Data Central and FARE datasets for high-accuracy allergen identification while users browse.
+          </p>
+          <div class="project-tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+            <span class="tag blue">Chrome Extension API</span><span class="tag blue">Manifest V3</span>
+            <span class="tag pink">TensorFlow.js</span><span class="tag pink">BERT/DistilBERT</span>
+            <span class="tag">Python</span><span class="tag">JSON</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/cse253/" target="_blank" class="proj-link primary-link"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
       </div>
-    </section>
-    <br><br>
 
-    <section class="tharu">
-      <h2>Skills</h2>
-      <div class="skill"><span>Team Management</span><div class="skill-bar"><div class="fill" style="width: 85%;"></div></div></div>
-      <div class="skill"><span>Team Collaboration</span><div class="skill-bar"><div class="fill" style="width: 90%;"></div></div></div>
-      <div class="skill"><span>Time Management</span><div class="skill-bar"><div class="fill" style="width: 80%;"></div></div></div>
-      
-      <div class="skill"><span>Web Development (Frontend)</span><div class="skill-bar"><div class="fill" style="width: 85%;"></div></div></div>
-      <div class="skill"><span>C, C++</span><div class="skill-bar"><div class="fill" style="width: 90%;"></div></div></div>
-      <div class="skill"><span>Python</span><div class="skill-bar"><div class="fill" style="width: 85%;"></div></div></div>
-      <div class="skill"><span>Java</span><div class="skill-bar"><div class="fill" style="width: 80%;"></div></div></div>
-    </section>
-  </main>
+      <!-- MARUTHUVAN -->
+      <div class="project-card">
+        <div class="project-visual pv-maruthuvan">
+          <div class="pv-icon"><i class="fas fa-heartbeat"></i></div>
+          <span class="project-type-label">Full-Stack · Healthcare</span>
+        </div>
+        <div class="project-body">
+          <div class="project-number">02</div>
+          <h3>Maruthuvan — Digital Healthcare Platform</h3>
+          <p>
+            A unified digital healthcare platform connecting government hospitals, doctors, and patients into a single secure network. Enables digital health records, emergency support, and seamless consultations. Built from August to December 2025.
+          </p>
+          <div class="project-tags">
+            <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Node.js</span>
+            <span class="tag blue">Tailwind CSS</span><span class="tag blue">MongoDB</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/cse253/" target="_blank" class="proj-link"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
 
-  <!-- Footer -->
+      <!-- HEARAID -->
+      <div class="project-card">
+        <div class="project-visual pv-hearaid">
+          <div class="pv-icon"><i class="fas fa-hands"></i></div>
+          <span class="project-type-label">Web App · Accessibility</span>
+        </div>
+        <div class="project-body">
+          <div class="project-number">03</div>
+          <h3>HearAid — Speech to Sign Language</h3>
+          <p>
+            A web application launched in January 2026 that converts real-time speech into text and maps it to predefined sign language codes using stored 3D coordinate and rotation parameters to generate accurate sign animations for inclusive communication.
+          </p>
+          <div class="project-tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+            <span class="tag blue">Web Speech API</span><span class="tag blue">Three.js / WebGL</span>
+            <span class="tag pink">Node.js</span><span class="tag pink">Express.js</span>
+            <span class="tag">JSON/NoSQL</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/cse253/" target="_blank" class="proj-link"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
 
+      <!-- ROLLCALLX -->
+      <div class="project-card">
+        <div class="project-visual pv-rollcallx">
+          <div class="pv-icon"><i class="fas fa-clipboard-check"></i></div>
+          <span class="project-type-label">Web App · EdTech</span>
+        </div>
+        <div class="project-body">
+          <div class="project-number">04</div>
+          <h3>RollCallX — Attendance Management System</h3>
+          <p>
+            A web-based attendance management system that automates and streamlines student attendance in educational institutions with features including real-time updates, secure login, automated reports, and data visualisation via Chart.js.
+          </p>
+          <div class="project-tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+            <span class="tag blue">Python (Flask)</span><span class="tag blue">MySQL</span>
+            <span class="tag pink">Chart.js</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/cse253/" target="_blank" class="proj-link"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section class="skills-section">
+    <div class="section-header">
+      <div class="section-eyebrow">Capabilities</div>
+      <h2>Technical <span class="accent">Skills</span></h2>
+    </div>
+    <div class="skills-grid" id="skillsGrid">
+      <div class="skill-item" data-pct="90">
+        <div class="skill-header"><span class="skill-name">C / C++</span><span class="skill-pct">90%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+      </div>
+      <div class="skill-item" data-pct="85">
+        <div class="skill-header"><span class="skill-name">Python</span><span class="skill-pct">85%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+      </div>
+      <div class="skill-item" data-pct="80">
+        <div class="skill-header"><span class="skill-name">Java</span><span class="skill-pct">80%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+      </div>
+      <div class="skill-item" data-pct="85">
+        <div class="skill-header"><span class="skill-name">Web Development (Frontend)</span><span class="skill-pct">85%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+      </div>
+      <div class="skill-item" data-pct="78">
+        <div class="skill-header"><span class="skill-name">Deep Learning / PyTorch</span><span class="skill-pct">78%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+      </div>
+      <div class="skill-item" data-pct="80">
+        <div class="skill-header"><span class="skill-name">React / Next.js</span><span class="skill-pct">80%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+      </div>
+      <div class="skill-item" data-pct="90">
+        <div class="skill-header"><span class="skill-name">Team Collaboration</span><span class="skill-pct">90%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+      </div>
+      <div class="skill-item" data-pct="85">
+        <div class="skill-header"><span class="skill-name">Time Management</span><span class="skill-pct">85%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:0"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Tharunika SS. Built with passion & purpose.</p>
+    <div class="socials">
+      <a href="https://github.com/cse253/" target="_blank" class="social-link" style="width:36px;height:36px;font-size:0.9rem"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/tharunika-s-s-96475532a" target="_blank" class="social-link" style="width:36px;height:36px;font-size:0.9rem"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    // Animate skill bars on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const fills = entry.target.querySelectorAll('.skill-fill');
+          fills.forEach(fill => {
+            const pct = fill.closest('.skill-item').dataset.pct;
+            fill.style.width = pct + '%';
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    document.getElementById('skillsGrid').querySelectorAll('.skill-item').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
